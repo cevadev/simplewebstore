@@ -1,4 +1,6 @@
+com\ceva\store\CatProduct3.class
+com\ceva\database\DBUtil.class
 com\ceva\UploadServlet.class
 com\ceva\Misc.class
-com\ceva\database\DBUtil.class
 com\ceva\store\CatProduct.class
+com\ceva\store\CatHandler.class

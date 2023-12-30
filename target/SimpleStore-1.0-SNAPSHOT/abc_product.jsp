@@ -5,7 +5,7 @@
     2. Si se llama a la pagina abc_products con action=edit sabemos que es una edicion por lo tanto
         mostramos la forma edicion.
 -->
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*,com.ceva.database.DBUtil"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, java.sql.*,com.ceva.database.DBUtil"%>
 <!-- La funcion nullToEmpty() estara fuera del metodo processRequest() por lo que colocamos el signo 
      de exclamacion luego del menor que porciente-->
 <%!
@@ -124,7 +124,7 @@ if ("edit".equals(action)) {
             <input type="hidden" name="id_product" value="<%=id_product != -1 ? id_product : ""%>">
             Nombre: <input type="text" name="name" value="<%=name%>"><br>
             Descripci&oacute;n: <input type="text" name="description" value="<%=description%>"><br>
-            Precio: <input type="text" name="price" value="<%=String.format("%.2f", price)%>"><br>
+            Precio: <input type="text" name="price" value="<%=String.format(Locale.US, "%.2f", price)%>"><br>
 
             <!<!-- Cuando se presiona el boton guardar: 
                     1. Se lee el campo action que dice save 
@@ -147,7 +147,7 @@ else { %>
         <td><%=rs.getInt("id_product")%></td>
         <td><%=nullToEmpty(rs.getString("name"))%></td>
         <td><%=nullToEmpty(rs.getString("description"))%></td>
-        <td align="right"><%=String.format("%.2f", rs.getDouble("price"))%></td>
+        <td align="right"><%=String.format(Locale.US, "%.2f", rs.getDouble("price"))%></td>
         <!-- Botones para editar el registro y eliminar el registro -->
         <td>
             <a href="abc_product.jsp?action=edit&id_product=<%=rs.getInt("id_product")%>">[Edit]</a>
