@@ -1,2 +1,4 @@
-com\ceva\SimpleStore\JakartaRestConfiguration.class
-com\ceva\SimpleStore\resources\JakartaEE10Resource.class
+com\ceva\UploadServlet.class
+com\ceva\Misc.class
+com\ceva\database\DBUtil.class
+com\ceva\store\CatProduct.class
