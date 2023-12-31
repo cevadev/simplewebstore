@@ -27,6 +27,7 @@ public class CatHandler {
     protected Object[] curData;
     private Iterator<Object[]> it = null;
     protected boolean editFlag;
+    // los errores de validacion se manejaran en un array
     private String[] errors;
     
     public CatHandler() {
@@ -104,12 +105,22 @@ public class CatHandler {
         return false;
     }
     
+    /**
+     * Agregamos un error al array
+     * @param name - nombre del campo con error
+     * @param errorMessage - Mensaje de error producido
+     */
     void setError(String name, String errorMessage) {
         if (errors == null)
             errors = new String[mapIndex.size()];
         errors[mapIndex.get(name)] = errorMessage;
     }
     
+    /**
+     * Obtenemos el error
+     * @param name - nombre de campo
+     * @return 
+     */
     public String getError(String name) {
         if (errors != null) {
             String err = errors[mapIndex.get(name)];
