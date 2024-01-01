@@ -29,7 +29,9 @@ public class UploadServlet extends HttpServlet {
         Part part = request.getPart("uploadFile");
         String fileName =  part.getSubmittedFileName();
         
+        // indicamos directorio donde se almacenaran las imagenes
         try (FileOutputStream fout = new FileOutputStream("c:/temp/uploadFolder/" + fileName)) {
+            // almacenar un archivo
             InputStream in = part.getInputStream();
             byte buffer[] = new byte[2048];
             int len = in.read(buffer);
@@ -39,7 +41,7 @@ public class UploadServlet extends HttpServlet {
             }
             in.close();
         }
-        
+        /** aqui podemos informar al usuario que el archivo se proceso correctamente **/
         response.sendRedirect("uploadDemo.html");
     }
 }
